@@ -22,8 +22,9 @@ enum OrderStatus {
   PENDING
   PROCESSING
   SHIPPED
+  DELIVERED
+  CANCELLED
 }
-
 enum PaymentStatus {
   PENDING
   COMPLETED
@@ -167,7 +168,7 @@ model Cart {
   user User @relation(fields: [userId],references: [id],onDelete: Cascade)
 
   orders Order[]
-  checkout Boolean @default(false)
+  checkedOut Boolean @default(false)
 
   cartItems CartItem[]
 
